@@ -84,7 +84,6 @@ cd email-drafting-agent
 # (2) Create virtual environment
 python -m venv venv
 venv\Scripts\activate      # Windows
-# source venv/bin/activate # macOS/Linux
 
 # (3) Install dependencies
 pip install -r requirements.txt
@@ -96,9 +95,10 @@ python genai-agentos/cli/cli.py register_agent --name "email-drafting-agent" --d
 # (5) Run server
 python server.py
 
-🌐 (Optional) Live Deployment
-Bonus points!
+🌐 Live Deployment
 
+RUN COMMAND:
+ngrok http 5000
 This agent is live at:
 https://YOUR-NGROK-URL.ngrok-free.app
 
