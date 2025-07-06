@@ -30,7 +30,6 @@ The agent uses Jinja templating + prompt engineering to translate structured JSO
 
 ### Input Example
 
-```json
 {
   "recipient": "Mr. Sharma",
   "purpose": "Request a meeting regarding the Q3 project plan",
@@ -40,10 +39,9 @@ The agent uses Jinja templating + prompt engineering to translate structured JSO
     "Confirm resource allocation"
   ]
 }
+
 Output
-python
-Copy
-Edit
+
 📬 Subject: Request a meeting regarding the Q3 project plan
 
 Dear Mr. Sharma,
@@ -57,7 +55,7 @@ I hope you're doing well. I'm reaching out to request a meeting regarding the Q3
 Please let me know if you have any questions.
 
 Best regards,  
-Aaryan Pawar
+[YOUR NAME]
 
 🧩 Project Structure
 bash
@@ -105,10 +103,6 @@ This agent is live at:
 https://YOUR-NGROK-URL.ngrok-free.app
 
 You can POST a request like this:
-
-bash
-Copy
-Edit
 curl -X POST https://YOUR-NGROK-URL.ngrok-free.app/run \
   -H "Content-Type: application/json" \
   -d @test_input.json
