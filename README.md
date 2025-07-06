@@ -5,7 +5,8 @@ Transform bullet points into polished, professional emails with AI.
 Built for the [GenAI AgentOS Mini Challenge 2](https://github.com/genai-works-org/genai-agentos).
 
 ---
-
+##Check out Demo
+[Email Drafting Agent](https://youtu.be/ibMepP7qhuc?si=4lApIcQQ_lIfWT4Z)
 ## 💡 What It Does
 
 This agent takes minimal bullet-point input such as:
