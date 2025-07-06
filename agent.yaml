@@ -1,0 +1,8 @@
+id: email-drafting-agent
+name: Email Drafting Agent
+description: Professional email generation from bullet points.
+author: Aaryan Pawar
+tags: ["email", "bullet-points", "generation", "GenAI"]
+entry_point: main.py
+visibility: public
+license: MIT
