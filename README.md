@@ -1,86 +1,125 @@
-# 📧 Email Drafting Agent
+📬 Email Drafting Agent
 
-An AI-powered agent that transforms bullet-point-style input into professional, polished email drafts.
+Transform bullet points into polished, professional emails with AI.
 
----
-
-## 💡 Features
-
-- Accepts minimal input:
-  - Recipient's name or role
-  - Purpose of the email
-  - Bullet points for details
-- Generates:
-  - Subject line
-  - Greeting
-  - Organized body
-  - Polite closing
+Built for the [GenAI AgentOS Mini Challenge 2](https://github.com/genai-works-org/genai-agentos).
 
 ---
 
-## ⚙️ Setup Instructions
+## 💡 What It Does
 
-```bash
-git clone https://github.com/your-username/email-drafting-agent.git
-cd email-drafting-agent
-python -m venv venv
-venv\Scripts\activate  # For Windows
-pip install -r requirements.txt
-python server.py
-🔁 Test Locally
-bash
-Copy
-Edit
-python test_request.py
-📨 Sample Input
-json
-Copy
-Edit
+This agent takes minimal bullet-point input such as:
+
+- Recipient's name or role  
+- Purpose of the email  
+- Key points to include  
+
+And returns a complete email with:
+
+- ✅ A subject line  
+- ✅ A respectful greeting  
+- ✅ A well-structured body  
+- ✅ A professional closing  
+
+---
+
+## ⚙️ How It Works
+
+The agent uses Jinja templating + prompt engineering to translate structured JSON input into human-like, fluent email content.
+
+### Input Example
+
+```json
 {
-  "recipient": "Ms. Iyer",
-  "purpose": "discuss the upcoming workshop",
-  "key_points": ["Finalize agenda", "Confirm participants", "Reserve venue"]
+  "recipient": "Mr. Sharma",
+  "purpose": "Request a meeting regarding the Q3 project plan",
+  "points": [
+    "Discuss project timeline",
+    "Align on deliverables",
+    "Confirm resource allocation"
+  ]
 }
-✅ Sample Output
-json
-Copy
-Edit
-{
-  "subject": "Regarding Discuss the upcoming workshop",
-  "body": "Dear Ms. Iyer,\n\nI hope you're doing well. I'm reaching out to discuss the upcoming workshop.\n\n- Finalize agenda\n- Confirm participants\n- Reserve venue\n\nPlease let me know if you have any questions.\n\nBest regards,\n[Your Name]"
-}
-🌐 Live Demo (Bonus)
-👉 Try it live
-
-📚 How It Works
-Built using Python + Flask
-
-Uses a prompt-like template inside main.py to generate emails
-
-server.py handles API requests
-
-test_request.py sends a sample POST request
-
-📦 AgentOS Registration
-This agent is registered and callable via GenAI AgentOS.
-
-🧑‍💻 Author
-Aaryan Pawar
-
+Output
 python
 Copy
 Edit
+📬 Subject: Request a meeting regarding the Q3 project plan
 
----
+Dear Mr. Sharma,
 
-✅ **Let me know if you'd like me to generate your `requirements.txt` or help write any missing file.**  
-You're ready to publish and submit!
+I hope you're doing well. I'm reaching out to request a meeting regarding the Q3 project plan.
 
+- Discuss project timeline  
+- Align on deliverables  
+- Confirm resource allocation
 
+Please let me know if you have any questions.
 
+Best regards,  
+Aaryan Pawar
 
+🧩 Project Structure
+bash
+Copy
+Edit
+email-drafting-agent/
+├── genai-agentos/
+│   └── cli/
+│       ├── src/               # Shared utils, settings, http client
+│       ├── http.py
+│       ├── cli.py             # Agent registration / management CLI
+├── main.py                    # Agent logic
+├── server.py                  # Runs the agent server
+├── agent.yaml                 # AgentOS config
+├── test_input.json            # Sample input
+├── README.md                  # You're here!
 
+🚀 How to Run Locally
+bash
+Copy
+Edit
+# (1) Clone the repo
+git clone https://github.com/your-username/email-drafting-agent.git
+cd email-drafting-agent
 
+# (2) Create virtual environment
+python -m venv venv
+venv\Scripts\activate      # Windows
+# source venv/bin/activate # macOS/Linux
 
+# (3) Install dependencies
+pip install -r requirements.txt
 
-Ask ChatGPT
+# (4) Register agent (optional)
+set PYTHONPATH=../..
+python genai-agentos/cli/cli.py register_agent --name "email-drafting-agent" --description "Professional email generation from bullet points"
+
+# (5) Run server
+python server.py
+
+🌐 (Optional) Live Deployment
+Bonus points!
+
+This agent is live at:
+https://YOUR-NGROK-URL.ngrok-free.app
+
+You can POST a request like this:
+
+bash
+Copy
+Edit
+curl -X POST https://YOUR-NGROK-URL.ngrok-free.app/run \
+  -H "Content-Type: application/json" \
+  -d @test_input.json
+
+📦 Tech Stack
+Python 3.10
+
+GenAI AgentOS
+
+typer, httpx, pydantic, jinja2
+
+🙌 Credits
+Built by Aaryan Pawar
+For GenAI Mini Challenge 2
+
